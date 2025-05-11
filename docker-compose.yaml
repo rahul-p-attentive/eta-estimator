@@ -1,0 +1,21 @@
+services:
+
+  singularity_db:
+    image: postgres:14
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: singularity_db
+      POSTGRES_USER: singularity
+      POSTGRES_PASSWORD: squad@123
+      POSTGRES_HOST_AUTH_METHOD: md5
+    container_name: singularity_db
+    ports:
+      - "15432:5432"
+    volumes:
+      - singularity_db_vol:/var/lib/postgresql/data
+
+volumes:
+  singularity_db_vol:
+
+
+  
