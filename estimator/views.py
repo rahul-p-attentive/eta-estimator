@@ -39,12 +39,17 @@ class JobViewSet(viewsets.ModelViewSet):
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-        trade_estimations = serializer.validated_data['trade_estimations']
+        user_inputs = serializer.validated_data['user_inputs']
         
         try:
             # Use the ML predictor to estimate time
-            estimated_time = time_predictor.predict_time(trade_estimations)
-            
+            estimated_time_dict = time_predictor.predict_estimated_times(user_inputs)
+
+            # For each trade get estimator whose assigned jobs will be done first (based on estimated_completion_time)
+            for trade in estimated_time_dict:
+                estimator = Estimator.objects.filter(trade=trade).jobs.order_by('estimated_completion_time').first()
+
+
             return Response({
                 "estimated_time": estimated_time,
                 "trade_estimations": trade_estimations

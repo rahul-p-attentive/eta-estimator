@@ -1,0 +1,30 @@
+Category - Requests;Resource Group;Count of Resources;Difficulty;Shift start;Shift end
+Communication;Electrical;33;1;10.30 am;7.30 pm
+Demolition;Demolition;4;2;10.30 am;7.30 pm
+Drywall;Drywall;20;4;10.30 am;7.30 pm
+Earthwork;Earthwork;6;4;10.30 am;7.30 pm
+Electrical;Electrical;33;3;10.30 am;7.30 pm
+Electronic Safety And Security;Electrical;33;3;10.30 am;7.30 pm
+Equipment;Electrical;33;2;10.30 am;7.30 pm
+Finishes;Finishes;7;2;10.30 am;7.30 pm
+Fire Suppression;Utility;19;3;10.30 am;7.30 pm
+Flooring;Roofing;10;2;10.30 am;7.30 pm
+Furnishings;Lumber;24;2;10.30 am;7.30 pm
+Hardscape;Concrete Estimation;51;2;10.30 am;7.30 pm
+Irrigation;Landscape_Paving_Irrigation;19;3;10.30 am;7.30 pm
+Landscaping;Landscape_Paving_Irrigation;19;2;10.30 am;7.30 pm
+Masonry;Masonry;5;3;10.30 am;7.30 pm
+Mechanical And HVAC;Mechanical_HVAC_Plumbing;57;4;10.30 am;7.30 pm
+Metal;Structural Steel;38;5;10.30 am;7.30 pm
+Openings;Rebar Detailing;7;2;10.30 am;7.30 pm
+Painting;Drywall;20;2;10.30 am;7.30 pm
+Paving (Asphalt and Concrete) and Striping;Concrete Estimation;51;2;10.30 am;7.30 pm
+Plumbing;Mechanical_HVAC_Plumbing;57;4;10.30 am;7.30 pm
+Roofing;Roofing;10;3;10.30 am;7.30 pm
+Snow Removal;Landscape_Paving_Irrigation;19;2;10.30 am;7.30 pm
+Specialties;Utility;19;1;10.30 am;7.30 pm
+Storm, Sanitary and Water Utilities;Utility;19;3;10.30 am;7.30 pm
+Structural Concrete and Reinforcement;Structural Steel;38;5;10.30 am;7.30 pm
+Thermal and Moisture Protection;Rebar Detailing;7;3;10.30 am;7.30 pm
+Utility;Utility;19;3;10.30 am;7.30 pm
+Wood (Lumber/Millwork) And Plastic;Lumber;24;5;10.30 am;7.30 pm

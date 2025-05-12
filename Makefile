@@ -14,3 +14,6 @@ createsuperuser:
 
 create_trades:
 	python create_trades.py
+
+create_estimators:
+	python create_estimators.py

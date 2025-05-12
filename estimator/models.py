@@ -14,7 +14,7 @@ class Estimator(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    trade = models.OneToOneField(Trade, on_delete=models.CASCADE, related_name='estimator')
+    trade = models.ForeignKey(Trade, on_delete=models.CASCADE, related_name='estimators')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -25,7 +25,7 @@ class Job(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    estimated_completion_time = models.DurationField()
+    estimated_completion_time = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=20, choices=[
         ('pending', 'Pending'),
         ('in_progress', 'In Progress'),

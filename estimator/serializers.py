@@ -32,6 +32,6 @@ class TradeEstimationInputSerializer(serializers.Serializer):
     )
 
 class EstimateTimeInputSerializer(serializers.Serializer):
-    trade_estimations = serializers.ListField(
+    user_inputs = serializers.ListField(
         child=TradeEstimationInputSerializer()
     ) 
