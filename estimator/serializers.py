@@ -9,11 +9,15 @@ class EstimatorSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'email', 'trade']
 
 class JobSerializer(serializers.ModelSerializer):
-    estimator = serializers.PrimaryKeyRelatedField(queryset=Estimator.objects.all())
+    trades = serializers.ListField(
+        child=serializers.CharField(max_length=100),
+        write_only=True
+    )
+    estimator = serializers.PrimaryKeyRelatedField(required=False, read_only=True)
 
     class Meta:
         model = Job
-        fields = ['id', 'title', 'description', 'estimated_completion_time', 'status', 'estimator', 'created_at', 'updated_at']
+        fields = ['id', 'title', 'description', 'estimated_completion_time', 'status', 'estimator', 'trades', 'created_at', 'updated_at']
 
 class TradeSerializer(serializers.ModelSerializer):
     class Meta:

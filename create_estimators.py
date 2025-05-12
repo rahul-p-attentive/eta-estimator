@@ -22,9 +22,10 @@ def get_trade(trade_name):
 def create_estimator(trade_id, trade_name, index):
     """Create an estimator for a given trade."""
     try:
+        email =  f"estimator.{trade_id}.{index}@example.com"
         estimator = Estimator.objects.create(
             name=f"Estimator - {trade_name} - {index}",
-            email=f"estimator{index}@example.com",
+            email= email,
             trade_id=trade_id
         )
         print(f"Created estimator: {estimator.name} for trade ID: {trade_id}")
@@ -61,4 +62,4 @@ def main():
             create_estimator(trade_id, trade_name, i + 1)
 
 if __name__ == "__main__":
-    main() 
+    main()

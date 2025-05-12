@@ -47,3 +47,16 @@ class ResourceGroup(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.number_of_resources} resources)"
+
+def get_estimator_with_earliest_completion_time(trade_name):
+    try:
+        estimator = Estimator.objects.filter(
+            trade__name=trade_name
+        ).select_related('job').order_by('job__estimated_completion_time').first()
+        
+        if estimator is None:
+            return None
+        
+        return estimator
+    except Exception as e:
+        raise Exception(f"Error finding estimator: {str(e)}")

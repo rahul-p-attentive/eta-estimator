@@ -77,14 +77,14 @@ class MLTimePredictor:
     
     def get_trade_count_map(self, user_input):
         trade_count_map = defaultdict(int)
-        for trade in user_input['trades']:
+        for trade in user_input:
             if trade['is_workable']:
                 for trade_name in trade['trades']:
                     trade_count_map[trade_name] += 1
         
         return trade_count_map
     
-    def get_dataframe(self, construction_request_id, trade_count_map):
+    def get_dataframe(self, trade_count_map, construction_request_id):
         """
             Counts the number of workable sheets for each trade and returns a dataframe with multiple rows for each trade.
             Fields that will be present in the dataframe are:
@@ -96,7 +96,7 @@ class MLTimePredictor:
         data = pd.DataFrame(columns=self.expected_columns)
         
         for trade_name, count in trade_count_map.items():
-            data = data.append({
+            data = data._append({
                 'construction_request_id': construction_request_id,
                 'trade_name': trade_name,
                 'workable_sheets_count': count,
@@ -121,11 +121,12 @@ class MLTimePredictor:
         try:
             trade_count_map = self.get_trade_count_map(user_input)
             data = self.get_dataframe(trade_count_map, construction_request_id)
+            trade_names = data['trade_name'].values
             data = self.prepare_X(data)
             ys = self.model.predict(data)
             ys = self.scale_out_y(ys)
 
-            return dict(zip(data['trade_name'], ys))
+            return dict(zip(trade_names, ys.reshape(-1)))
             
         except Exception as e:
             raise Exception(f"Error making prediction: {str(e)}")
